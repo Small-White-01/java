@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lezijie.admin.mapper.TUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lezijie.admin.pojo.TUser">
+        <result column="id" property="id" />
+        <result column="bz" property="bz" />
+        <result column="password" property="password" />
+        <result column="trueName" property="truename" />
+        <result column="userName" property="username" />
+        <result column="remarks" property="remarks" />
+        <result column="isDel" property="isdel" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        bz, password, trueName, userName, remarks, isDel
+    </sql>
+
+</mapper>

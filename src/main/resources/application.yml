@@ -1,0 +1,43 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///lego?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    hikari:
+      pool-name: thepoolofconnectionTodatasource
+      minimum-idle: 5
+      #180000ms
+      idle-timeout: 180000
+      maximum-pool-size: 10
+      auto-commit: true
+      connection-timeout: 180000
+      max-lifetime: 180000
+      connection-test-query: SELECT 1
+
+  freemarker:
+
+    content-type: text/html
+    charset: UTF-8
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+    request-context-attribute: ctx
+    settings:
+      number_format: 0.##
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.lezijie.lego.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+logging:
+  file:
+    path: ./lego.log
+  level:
+    com.lezijie.lego.mapper: debug
